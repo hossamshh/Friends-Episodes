@@ -1,0 +1,5 @@
+export const SHOW_TOASTER = "SHOW_TOASTER";
+export const HIDE_TOASTER = "HIDE_TOASTER";
+
+export const SET_EPISODES = "SET_EPISODES";
+export const CLEAR_EPISODES = "CLEAR_EPISODES";
