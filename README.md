@@ -1,3 +1,6 @@
+# Live Web App
+https://friends-generator-bdcac.web.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +71,26 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Firebase
+
+### Firebase project initialization
+
+This project is using firebase authentication, firestore, functions and hosting services.
+  1. Set up your firebase project, enable authentication, firestore, functions and hosting services.
+  2. Register your web application in firebase console and copy your firebase configuration object.
+  3. create a new file "src/Config/constants.js" and paste your firebase configuration folder.
+  
+
+### Firebase CLI set up
+
+  1. install firebase cli tools
+  ### npm install -g firebase-tools
+  
+  3. login to firebase if you are not already
+  ### firebase login
+  
+  3. initialize firebase
+  ### firebase init
+  
+reference: https://www.npmjs.com/package/firebase-tools
