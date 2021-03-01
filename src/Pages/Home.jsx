@@ -24,6 +24,7 @@ import {getUserData, onUserChanged, saveUserData} from "../Repository/Firebase";
 
 import {epsNames} from "../Config/episodesList";
 import {setEpispdes} from "../Redux/Dispatch";
+import {Footer} from "../Components/Footer";
 
 export default function Home() {
 	const [user, setUser] = useState(null);
@@ -152,13 +153,24 @@ export default function Home() {
 		<Fragment>
 			<Login open={user === null || user.uid === undefined} />
 			<MyDrawer user={user}>
-				<Random />
-				<Typography variant="h6" style={{paddingBottom: 16}}>
-					List of episodes
-				</Typography>
-				<Grid container spacing={2}>
-					{mapWatched()}
-				</Grid>
+				<Box
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						justifyContent: "space-between",
+						height: window.innerHeight - 112,
+					}}>
+					<Box>
+						<Random />
+						<Typography variant="h6" style={{paddingBottom: 16}}>
+							List of episodes
+						</Typography>
+						<Grid container spacing={2}>
+							{mapWatched()}
+						</Grid>
+					</Box>
+					<Footer />
+				</Box>
 			</MyDrawer>
 		</Fragment>
 	);

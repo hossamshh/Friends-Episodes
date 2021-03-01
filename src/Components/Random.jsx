@@ -60,13 +60,14 @@ export default function Random() {
 	};
 
 	const saveAsWatched = () => {
-		if (genEp.state) {
+		if (genEp.state && !episodes[genEp.season].episodes[genEp.episode]) {
 			const newEps = [...episodes];
 			newEps[genEp.season].episodes = episodes[
 				genEp.season
 			].episodes.map((w, i) => (i === genEp.episode ? true : w));
 			setEpispdes(newEps);
 			saveUserData(newEps);
+			showToaster("success", "Episode saved", 3000);
 		}
 	};
 
