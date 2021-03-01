@@ -28,18 +28,17 @@ export function Footer() {
 			<Typography
 				style={{fontSize: 12, lineHeight: "14px"}}
 				variant="body2"
-				color="textSecondary"
-				component="span">
+				color="textSecondary">
 				{"For Contact & Suggestions: "}
+				<Link
+					style={{fontSize: 12, lineHeight: "14px"}}
+					variant="body2"
+					color="textSecondary"
+					href="mailto:hossampen97@gmail.com"
+					className={classes.link}>
+					hossampen97@gmail.com
+				</Link>
 			</Typography>
-			<Link
-				style={{fontSize: 12, lineHeight: "14px"}}
-				variant="body2"
-				color="textSecondary"
-				href="mailto:hossampen97@gmail.com"
-				className={classes.link}>
-				hossampen97@gmail.com
-			</Link>
 		</Box>
 	);
 }
