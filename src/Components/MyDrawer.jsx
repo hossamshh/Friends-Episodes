@@ -14,11 +14,11 @@ import {
 	ListItem,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import ClearAllRoundedIcon from "@material-ui/icons/ClearAllRounded";
+import NoAccountsIcon from "@material-ui/icons/Person";
 
 import UserAvatar from "./UserAvatar";
 import {ProfileLogoutIcon} from "../Config/icons";
-import {clearAllWatched, logout} from "../Repository/Firebase";
+import {clearAllWatched, deleteAccount, logout} from "../Repository/Firebase";
 
 const drawerWidth = 240;
 
@@ -124,6 +124,18 @@ export default function MyDrawer(props) {
 				onClick={() => {
 					handleDrawerToggle();
 					logout();
+				}}>
+				<NoAccountsIcon style={{color: "#848A90"}} />
+				<Typography color="secondary" style={{marginLeft: 12}}>
+					Delete account
+				</Typography>
+			</ListItem>
+			<ListItem
+				button
+				style={{height: 50}}
+				onClick={() => {
+					handleDrawerToggle();
+					deleteAccount();
 				}}>
 				<ProfileLogoutIcon />
 				<Typography color="secondary" style={{marginLeft: 12}}>

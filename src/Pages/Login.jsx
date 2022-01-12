@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import {signInFacebook, signInGoogle} from "../Repository/Firebase";
 import {FacebookLogo, GoogleLogo} from "../Config/icons";
+import {showPrivacy} from "../Redux/Dispatch";
 
 const useStyles = makeStyles((theme) => ({
 	dialog: {
@@ -79,6 +80,12 @@ export default function Login({open}) {
 							</Typography>
 						</Box>
 					</Button>
+					<Typography
+						variant="caption"
+						style={{cursor: "pointer", margin: "20px 0 0"}}
+						onClick={showPrivacy}>
+						Privacy Policy
+					</Typography>
 				</Box>
 			</Container>
 		</Dialog>

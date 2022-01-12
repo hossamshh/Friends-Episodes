@@ -10,8 +10,6 @@ import theme from "./Config/theme";
 import {Provider} from "react-redux";
 import store from "./Redux";
 
-import Home from "./Pages/Home";
-
 ReactDOM.render(
 	<ThemeProvider theme={theme}>
 		<Provider store={store}>

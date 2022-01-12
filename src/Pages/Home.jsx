@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 
 import {
@@ -16,19 +16,14 @@ import {
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-import Login from "./Login";
-import MyDrawer from "../Components/MyDrawer";
 import Random from "../Components/Random";
 
-import {getUserData, onUserChanged, saveUserData} from "../Repository/Firebase";
+import {saveUserData} from "../Repository/Firebase";
 
 import {epsNames} from "../Config/episodesList";
 import {setEpispdes} from "../Redux/Dispatch";
-import {Footer} from "../Components/Footer";
 
-export default function Home() {
-	const [user, setUser] = useState(null);
-
+export default function Home({}) {
 	const watchedeps = useSelector((state) => state.eps.eps);
 
 	const [wall, setWall] = useState([
@@ -44,18 +39,6 @@ export default function Home() {
 		false,
 	]);
 
-	useEffect(() => {
-		onUserChanged((user) => {
-			if (user !== null) {
-				setUser({
-					username: user.displayName,
-					avatar: user.photoURL,
-					uid: user.uid,
-				});
-				getUserData(user.uid);
-			} else setUser(null);
-		});
-	}, []);
 	useEffect(() => {
 		if (watchedeps.length === 10) {
 			const newwall = watchedeps.map((w) =>
@@ -150,28 +133,14 @@ export default function Home() {
 	};
 
 	return (
-		<Fragment>
-			<Login open={user === null || user.uid === undefined} />
-			<MyDrawer user={user}>
-				<Box
-					style={{
-						display: "flex",
-						flexDirection: "column",
-						justifyContent: "space-between",
-						height: window.innerHeight - 112,
-					}}>
-					<Box>
-						<Random />
-						<Typography variant="h6" style={{paddingBottom: 16}}>
-							List of episodes
-						</Typography>
-						<Grid container spacing={2}>
-							{mapWatched()}
-						</Grid>
-					</Box>
-					<Footer />
-				</Box>
-			</MyDrawer>
-		</Fragment>
+		<Box>
+			<Random />
+			<Typography variant="h6" style={{paddingBottom: 16}}>
+				List of episodes
+			</Typography>
+			<Grid container spacing={2}>
+				{mapWatched()}
+			</Grid>
+		</Box>
 	);
 }

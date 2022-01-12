@@ -1,13 +1,7 @@
 import React, {Fragment, useState} from "react";
 import {useSelector} from "react-redux";
 
-import {
-	Box,
-	ListItemText,
-	makeStyles,
-	Switch,
-	Typography,
-} from "@material-ui/core";
+import {Box, ListItemText, Switch, Typography} from "@material-ui/core";
 import {epsNames} from "../Config/episodesList";
 import {setEpispdes, showToaster} from "../Redux/Dispatch";
 import {saveUserData} from "../Repository/Firebase";
@@ -62,9 +56,9 @@ export default function Random() {
 	const saveAsWatched = () => {
 		if (genEp.state && !episodes[genEp.season].episodes[genEp.episode]) {
 			const newEps = [...episodes];
-			newEps[genEp.season].episodes = episodes[
-				genEp.season
-			].episodes.map((w, i) => (i === genEp.episode ? true : w));
+			newEps[genEp.season].episodes = episodes[genEp.season].episodes.map(
+				(w, i) => (i === genEp.episode ? true : w)
+			);
 			setEpispdes(newEps);
 			saveUserData(newEps);
 			showToaster("success", "Episode saved", 3000);

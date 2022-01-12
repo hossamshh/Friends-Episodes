@@ -3,6 +3,8 @@ import {
 	HIDE_TOASTER,
 	SET_EPISODES,
 	CLEAR_EPISODES,
+	SHOW_PRIVACY,
+	HIDE_PRIVACY,
 } from "../../Config/actionTypes";
 
 import store from "../index";
@@ -21,4 +23,12 @@ export const setEpispdes = (eps) => {
 };
 export const clearEpisodes = () => {
 	store.dispatch({type: CLEAR_EPISODES});
+};
+
+// privacy dialog
+export const showPrivacy = () => {
+	store.dispatch({type: SHOW_PRIVACY});
+};
+export const hidePrivacy = () => {
+	store.dispatch({type: HIDE_PRIVACY});
 };

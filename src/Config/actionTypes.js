@@ -3,3 +3,6 @@ export const HIDE_TOASTER = "HIDE_TOASTER";
 
 export const SET_EPISODES = "SET_EPISODES";
 export const CLEAR_EPISODES = "CLEAR_EPISODES";
+
+export const SHOW_PRIVACY = "SHOW_PRIVACY";
+export const HIDE_PRIVACY = "HIDE_PRIVACY";

@@ -77,3 +77,8 @@ export function clearAllWatched() {
 	setEpispdes(un);
 	saveUserData(un);
 }
+
+export function deleteAccount() {
+	clearAllWatched();
+	logout();
+}

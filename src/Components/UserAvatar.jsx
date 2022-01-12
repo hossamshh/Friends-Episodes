@@ -12,10 +12,11 @@ import {
 	MenuItem,
 } from "@material-ui/core";
 import ClearAllRoundedIcon from "@material-ui/icons/ClearAllRounded";
+import Person from "@material-ui/icons/Person";
 
 import {ArrowDown, UpArrowBlue, ProfileLogoutIcon} from "../Config/icons";
 
-import {logout, clearAllWatched} from "../Repository/Firebase";
+import {logout, clearAllWatched, deleteAccount} from "../Repository/Firebase";
 
 const useStyles = makeStyles((theme) => ({
 	container: {
@@ -101,6 +102,17 @@ export default function UserAvatar(props) {
 										className={classes.typo2}
 										color="secondary">
 										Clear all watched
+									</Typography>
+								</Box>
+							</MenuItem>
+							<MenuItem className={classes.menuItem} onClick={deleteAccount}>
+								<Box className={classes.link}>
+									<Person style={{color: "#848A90"}} />
+									<Typography
+										variant="subtitle1"
+										className={classes.typo2}
+										color="secondary">
+										Delete account
 									</Typography>
 								</Box>
 							</MenuItem>
