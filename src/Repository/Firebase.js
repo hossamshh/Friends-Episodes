@@ -83,7 +83,12 @@ export function deleteAccount() {
 
 	const uid = auth.currentUser.uid;
 	const userRef = firestore.doc("episodes/" + uid);
-	userRef.delete();
 
-	logout();
+	userRef
+		.delete()
+		.then(() => {
+			showToaster("success", "Account deleted", 3000);
+			logout();
+		})
+		.catch((e) => console.log(e));
 }
