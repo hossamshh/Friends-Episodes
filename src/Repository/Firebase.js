@@ -66,7 +66,7 @@ export function getUserData() {
 export function saveUserData(data) {
 	const uid = auth.currentUser.uid;
 
-	const userRef = firestore.doc("episodes" + "/" + uid);
+	const userRef = firestore.doc("episodes/" + uid);
 	userRef
 		.set({data: data})
 		.catch((err) => showToaster("error", "Something went wrong", 3000));
@@ -80,5 +80,10 @@ export function clearAllWatched() {
 
 export function deleteAccount() {
 	clearAllWatched();
+
+	const uid = auth.currentUser.uid;
+	const userRef = firestore.doc("episodes/" + uid);
+	userRef.delete();
+
 	logout();
 }
