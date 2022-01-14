@@ -50,7 +50,7 @@ export function getUserData() {
 	const uid = auth.currentUser.uid;
 
 	const firestore = firebase.firestore();
-	const userRef = firestore.doc("episodes" + "/" + uid);
+	const userRef = firestore.doc("episodes/" + uid);
 
 	userRef
 		.get()
@@ -78,17 +78,12 @@ export function clearAllWatched() {
 	saveUserData(un);
 }
 
-export function deleteAccount() {
-	clearAllWatched();
+export async function deleteAccount() {
+	await clearAllWatched();
 
-	const uid = auth.currentUser.uid;
-	const userRef = firestore.doc("episodes/" + uid);
-
-	userRef
+	const user = auth.currentUser;
+	user
 		.delete()
-		.then(() => {
-			showToaster("success", "Account deleted", 3000);
-			logout();
-		})
+		.then(() => showToaster("success", "Account deleted", 3000))
 		.catch((e) => console.log(e));
 }
