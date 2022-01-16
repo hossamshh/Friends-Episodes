@@ -9,6 +9,7 @@ import {Footer} from "../Components/Footer";
 import Home from "./Home";
 
 import {getUserData, onUserChanged} from "../Repository/Firebase";
+import {showPrivacy} from "../Redux/Dispatch";
 
 export default function Layout() {
 	const [user, setUser] = useState(null);
@@ -24,6 +25,9 @@ export default function Layout() {
 				getUserData(user.uid);
 			} else setUser(null);
 		});
+		if (window.location.href.includes("privacy")) {
+			showPrivacy();
+		}
 	}, []);
 
 	return (

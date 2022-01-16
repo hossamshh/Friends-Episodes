@@ -31,4 +31,5 @@ export const showPrivacy = () => {
 };
 export const hidePrivacy = () => {
 	store.dispatch({type: HIDE_PRIVACY});
+	if (window.location.href.includes("privacy")) window.location.href = "/";
 };
